@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Card SelectionVC-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="CardSelectionVC" customModule="CardWorkoutApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZdR-ak-4QB">
+                                <rect key="frame" x="82" y="178" width="250" height="340"/>
+                                <color key="backgroundColor" systemColor="systemTealColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="340" id="cWT-No-MWP"/>
+                                    <constraint firstAttribute="width" constant="250" id="zRX-0z-eMR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9PO-lF-avF">
+                                <rect key="frame" x="77" y="578" width="260" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Rxd-Al-4SC"/>
+                                    <constraint firstAttribute="width" constant="260" id="cks-bD-jaV"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="Stop" imagePadding="4" cornerStyle="medium">
+                                    <imageReference key="image" image="stop.circle" catalog="system" symbolScale="medium"/>
+                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="18"/>
+                                    <color key="baseForegroundColor" systemColor="systemRedColor"/>
+                                    <color key="baseBackgroundColor" systemColor="systemRedColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="stopButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dox-i5-8Yg"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rae-Cn-WQZ">
+                                <rect key="frame" x="77" y="648" width="120" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="eUL-AX-r77"/>
+                                    <constraint firstAttribute="width" constant="120" id="xzk-Y2-e4b"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="Restart" imagePadding="4" cornerStyle="medium">
+                                    <imageReference key="image" image="restart.circle" catalog="system" symbolScale="medium"/>
+                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="18"/>
+                                    <color key="baseForegroundColor" systemColor="systemGreenColor"/>
+                                    <color key="baseBackgroundColor" systemColor="systemGreenColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="restartButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ugk-KM-EIb"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jmO-Mg-Xji">
+                                <rect key="frame" x="217" y="648" width="120" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Aps-6T-rOl"/>
+                                    <constraint firstAttribute="width" constant="120" id="dYC-rW-76s"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="Rules" imagePadding="4" cornerStyle="medium">
+                                    <imageReference key="image" image="list.bullet.circle" catalog="system" symbolScale="medium"/>
+                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="18"/>
+                                    <color key="baseForegroundColor" systemColor="systemBlueColor"/>
+                                    <color key="baseBackgroundColor" systemColor="systemBlueColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <segue destination="bje-v0-6FN" kind="presentation" id="BD7-lI-SUf"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="jmO-Mg-Xji" firstAttribute="trailing" secondItem="9PO-lF-avF" secondAttribute="trailing" id="51C-Es-C0d"/>
+                            <constraint firstItem="Rae-Cn-WQZ" firstAttribute="top" secondItem="9PO-lF-avF" secondAttribute="bottom" constant="20" id="GWa-LH-gWK"/>
+                            <constraint firstItem="Rae-Cn-WQZ" firstAttribute="leading" secondItem="9PO-lF-avF" secondAttribute="leading" id="nNN-ce-r16"/>
+                            <constraint firstItem="jmO-Mg-Xji" firstAttribute="centerY" secondItem="Rae-Cn-WQZ" secondAttribute="centerY" id="qFz-je-pZe"/>
+                            <constraint firstItem="ZdR-ak-4QB" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-100" id="qx9-TX-yXh"/>
+                            <constraint firstItem="ZdR-ak-4QB" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="saW-0c-Ews"/>
+                            <constraint firstItem="9PO-lF-avF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="tq7-pA-g4C"/>
+                            <constraint firstItem="9PO-lF-avF" firstAttribute="top" secondItem="ZdR-ak-4QB" secondAttribute="bottom" constant="60" id="wdq-cA-yW5"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="cardLabelView" destination="ZdR-ak-4QB" id="Egk-bQ-rEj"/>
+                        <outletCollection property="buttons" destination="9PO-lF-avF" collectionClass="NSMutableArray" id="95o-jK-0Cm"/>
+                        <outletCollection property="buttons" destination="Rae-Cn-WQZ" collectionClass="NSMutableArray" id="eh1-SN-lbD"/>
+                        <outletCollection property="buttons" destination="jmO-Mg-Xji" collectionClass="NSMutableArray" id="Ns8-Zg-Ucf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-271" y="-89"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="NJg-qU-FEf">
+            <objects>
+                <viewController id="bje-v0-6FN" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GXc-aD-LZx">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="838"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rules" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wny-jf-KyM">
+                                <rect key="frame" x="30" y="122" width="354" height="26.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The value of each card represents the number of excercise you do.  J = 11, Q = 12, K = 13, A = 14" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Zn-pS-Lrf">
+                                <rect key="frame" x="30" y="178.5" width="354" height="86"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="♠️ - Push Ups  ♥️ - Sit Ups  ♣️ - Burpees  ♦️ - Jumping Jacks" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0zV-6W-Hvc">
+                                <rect key="frame" x="107" y="338.5" width="200" height="167.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="66U-zc-rJD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="QXz-qV-wPB"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="wny-jf-KyM" firstAttribute="leading" secondItem="QXz-qV-wPB" secondAttribute="leading" constant="30" id="4P5-4x-dqu"/>
+                            <constraint firstItem="0zV-6W-Hvc" firstAttribute="top" secondItem="0Zn-pS-Lrf" secondAttribute="bottom" constant="74" id="HLW-z3-uts"/>
+                            <constraint firstItem="QXz-qV-wPB" firstAttribute="trailing" secondItem="wny-jf-KyM" secondAttribute="trailing" constant="30" id="HUT-Ty-S1e"/>
+                            <constraint firstItem="0Zn-pS-Lrf" firstAttribute="top" secondItem="wny-jf-KyM" secondAttribute="bottom" constant="30" id="Jjj-pt-ot3"/>
+                            <constraint firstItem="0Zn-pS-Lrf" firstAttribute="leading" secondItem="QXz-qV-wPB" secondAttribute="leading" constant="30" id="etR-G1-17L"/>
+                            <constraint firstItem="0zV-6W-Hvc" firstAttribute="centerX" secondItem="GXc-aD-LZx" secondAttribute="centerX" id="hwF-xq-bt4"/>
+                            <constraint firstItem="wny-jf-KyM" firstAttribute="top" secondItem="QXz-qV-wPB" secondAttribute="top" constant="74" id="rYl-an-CQr"/>
+                            <constraint firstItem="QXz-qV-wPB" firstAttribute="trailing" secondItem="0Zn-pS-Lrf" secondAttribute="trailing" constant="30" id="xfc-Cn-GE3"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NGw-Q4-YQg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="647" y="-91"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="list.bullet.circle" catalog="system" width="128" height="123"/>
+        <image name="restart.circle" catalog="system" width="128" height="123"/>
+        <image name="stop.circle" catalog="system" width="128" height="123"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
