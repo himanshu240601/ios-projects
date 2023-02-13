@@ -83,7 +83,6 @@
 		6A96F96A299A15E4005BBB9B = {
 			isa = PBXGroup;
 			children = (
-				6A96F9A8299A2269005BBB9B /* card.swift */,
 				6A96F975299A15E4005BBB9B /* CardWorkoutApp */,
 				6A96F98C299A15E5005BBB9B /* CardWorkoutAppTests */,
 				6A96F996299A15E5005BBB9B /* CardWorkoutAppUITests */,
@@ -104,6 +103,7 @@
 		6A96F975299A15E4005BBB9B /* CardWorkoutApp */ = {
 			isa = PBXGroup;
 			children = (
+				6A96F9A8299A2269005BBB9B /* card.swift */,
 				6A96F976299A15E4005BBB9B /* AppDelegate.swift */,
 				6A96F978299A15E4005BBB9B /* SceneDelegate.swift */,
 				6A96F97A299A15E4005BBB9B /* ViewController.swift */,
