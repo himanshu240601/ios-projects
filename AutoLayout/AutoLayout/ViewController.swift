@@ -26,7 +26,7 @@ class ViewController: UIViewController {
             .setPaddingToRightOfTextFields(
                 textField: passwordTextField,
                 x: 0, y: 0,
-                width: 26,
+                width: 34,
                 height: self.passwordTextField.frame.height
             )
     }
@@ -92,9 +92,17 @@ class ViewController: UIViewController {
             //clear textFields
             emailTextField.text?.removeAll()
             passwordTextField.text?.removeAll()
-
+            
             //go to next viewController
-            performSegue(withIdentifier: "LoginSucess", sender: nil)
+            performSegue(withIdentifier: "LoginSuccess", sender: nil)
+            
+//            guard let navigationController = self.navigationController else {
+//                return
+//            }
+//            var navigationArray = navigationController.viewControllers
+//            navigationArray.remove(at: navigationArray.count-2)
+//            
+//            self.navigationController?.viewControllers = navigationArray
         }
     }
     
