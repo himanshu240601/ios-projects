@@ -20,6 +20,7 @@
 		6ABC1913299DF3CD00C745F0 /* PasswordValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ABC1912299DF3CD00C745F0 /* PasswordValidation.swift */; };
 		6ABC1915299DF58700C745F0 /* ShowPromptMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ABC1914299DF58700C745F0 /* ShowPromptMessage.swift */; };
 		6AE754AA299DF1700022F1AB /* EmailValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AE754A9299DF1700022F1AB /* EmailValidation.swift */; };
+		6AFF85FB299F491E00E50564 /* UIElementsPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AFF85FA299F491E00E50564 /* UIElementsPadding.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		6ABC1912299DF3CD00C745F0 /* PasswordValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordValidation.swift; sourceTree = "<group>"; };
 		6ABC1914299DF58700C745F0 /* ShowPromptMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowPromptMessage.swift; sourceTree = "<group>"; };
 		6AE754A9299DF1700022F1AB /* EmailValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailValidation.swift; sourceTree = "<group>"; };
+		6AFF85FA299F491E00E50564 /* UIElementsPadding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIElementsPadding.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 		6AB7A2EB299CDA250098A82A /* AutoLayout */ = {
 			isa = PBXGroup;
 			children = (
+				6AFF85FA299F491E00E50564 /* UIElementsPadding.swift */,
 				6AB7A2EC299CDA250098A82A /* AppDelegate.swift */,
 				6AB7A2EE299CDA250098A82A /* SceneDelegate.swift */,
 				6AB7A2F0299CDA250098A82A /* ViewController.swift */,
@@ -277,6 +280,7 @@
 				6AB7A2F1299CDA250098A82A /* ViewController.swift in Sources */,
 				6AB7A31D299D00800098A82A /* LoggedInSucessVC.swift in Sources */,
 				6AB7A2ED299CDA250098A82A /* AppDelegate.swift in Sources */,
+				6AFF85FB299F491E00E50564 /* UIElementsPadding.swift in Sources */,
 				6AE754AA299DF1700022F1AB /* EmailValidation.swift in Sources */,
 				6AB7A2EF299CDA250098A82A /* SceneDelegate.swift in Sources */,
 				6ABC1913299DF3CD00C745F0 /* PasswordValidation.swift in Sources */,

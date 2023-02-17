@@ -16,11 +16,19 @@ class ViewController: UIViewController {
     
     let showPromptMessage = ShowPromptMessage()
     
+    let setElementsPadding = Padding()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // hide the navigation back button
-        self.navigationItem.setHidesBackButton(true, animated: false)
+        //set padding for passwordTextField
+        setElementsPadding
+            .setPaddingToRightOfTextFields(
+                textField: passwordTextField,
+                x: 0, y: 0,
+                width: 26,
+                height: self.passwordTextField.frame.height
+            )
     }
 
     //open dialog to prompt user
@@ -33,7 +41,6 @@ class ViewController: UIViewController {
         //add textField to get email address from user
         alertControllerForgotPassword
             .addTextField()
-        
         
         present(alertControllerForgotPassword, animated: true)
     }
@@ -55,11 +62,17 @@ class ViewController: UIViewController {
     
     func validateUserInput(email: String, password: String) -> Bool {
         
+        //isEmailValid stores two results (Bool, String)
+        //isEmailValid.0 is whether the email entered is correct (a bool value)
+        //isEmailValid.1 is message to show on prompt (a string value)
         let isEmailValid = emailValidation.isValidEmail(emailID: email)
         if !isEmailValid.0 {
             return showErrorMessage(message: isEmailValid.1)
         }
         
+        //isPasswordValid stores two results (Bool, String)
+        //isPasswordValid.0 is whether the password is correct (a bool value)
+        //isPasswordValid.1 is message to show on prompt (a string value)
         let isPasswordValid = passwordValidation.isValidPassword(password: password)
         if !isPasswordValid.0 {
             return showErrorMessage(message: isPasswordValid.1)
@@ -89,9 +102,11 @@ class ViewController: UIViewController {
     //toggle password - visible or secure
     @IBAction func togglePasswordTapped(_ sender: UIButton) {
         if passwordTextField.isSecureTextEntry{
+            //change to readable text
             toggleButton.setImage(UIImage(systemName: "eye.circle.fill"), for: .normal)
             passwordTextField.isSecureTextEntry = false
         }else {
+            //change to secure text
             toggleButton.setImage(UIImage(systemName: "eye.slash.circle.fill"), for: .normal)
             passwordTextField.isSecureTextEntry = true
         }

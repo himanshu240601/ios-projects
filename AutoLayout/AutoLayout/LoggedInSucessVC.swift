@@ -10,9 +10,6 @@ class LoggedInSucessVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //hide the navigation back button
-        self.navigationItem.setHidesBackButton(true, animated: false)
     }
 
 }
