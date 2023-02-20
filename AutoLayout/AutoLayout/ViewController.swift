@@ -29,6 +29,9 @@ class ViewController: UIViewController {
                 width: 34,
                 height: self.passwordTextField.frame.height
             )
+        
+        //hides the navigationBar from the navigationController
+        self.navigationController?.navigationBar.isHidden = true
     }
 
     //open dialog to prompt user
@@ -94,14 +97,14 @@ class ViewController: UIViewController {
             passwordTextField.text?.removeAll()
             
             //go to next viewController
-            performSegue(withIdentifier: "LoginSuccess", sender: nil)
+            self.performSegue(withIdentifier: "LoginSuccess", sender: nil)
             
 //            guard let navigationController = self.navigationController else {
 //                return
 //            }
 //            var navigationArray = navigationController.viewControllers
 //            navigationArray.remove(at: navigationArray.count-2)
-//            
+//
 //            self.navigationController?.viewControllers = navigationArray
         }
     }
