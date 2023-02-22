@@ -18,13 +18,13 @@ class ContactDetailVC: UIViewController {
     
     
     // MARK: properties
-    var contact: Contacts?
+    var data: (Contacts, IndexPath)?
     
     // MARK: class objects
     var contactsCrud = ContactCRUD.contactCRUD
     var alertActions = AlertActions()
     
-    // MARK: lifecycle functions
+    // MARK: lifecycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -41,10 +41,10 @@ class ContactDetailVC: UIViewController {
     
     // MARK: update data values
     func setDataValues() {
-        nameTextLabel.text = contact?.name ?? ""
-        numberTextLabel.text = contact?.mobile ?? ""
+        nameTextLabel.text = data?.0.name ?? ""
+        numberTextLabel.text = data?.0.mobile ?? ""
         
-        if (contact?.mobile == "") {
+        if (data?.0.mobile == "") {
             toggleButtons(false)
         }else {
             toggleButtons(true)
@@ -58,7 +58,7 @@ class ContactDetailVC: UIViewController {
     }
 }
 
-// MARK: contact functions update, deleted
+// MARK: extension for ContactDetailVC contact functions update, deleted
 extension ContactDetailVC {
     
     @objc func deleteContact() {
@@ -66,8 +66,8 @@ extension ContactDetailVC {
         
         alertController.addAction(UIAlertAction(title: "Cancel", style: .default))
         alertController.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { UIAlertAction in
+            self.contactsCrud.deleteContact(indexPath: self.data!.1)
             self.navigationController?.popViewController(animated: true)
-            //delete from the objects
         }))
         
         present(alertController, animated: true)
@@ -98,7 +98,7 @@ extension ContactDetailVC {
                     .textFields?[1].text
                 
                 self.contactsCrud
-                    .updateContact(contact: self.contact!, name: name!, number: number!)
+                    .updateContact(contact: self.data!.0, name: name!, number: number!)
                 
                 self.setDataValues()
         }))

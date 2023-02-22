@@ -9,13 +9,11 @@ import UIKit
 
 class ViewController: UITableViewController {
     
-    // MARK: properties
-    var namesArr = ["Christopher Nolan", "Woody Allen", "David Fincher", "Denis Villenueve", "Jordan Peele"]
-    var numbersArr = ["4353444567", "6847697857", "6849673725", "193875729", "5930586047"]
-    
     // MARK: class objects
+    var staticData = StaticData()
     var contactsCrud = ContactCRUD.contactCRUD
     var alertActions = AlertActions()
+    var sortContacts = SortContacts.sortContacts
     
     // MARK: lifecycle functions
     override func viewDidLoad() {
@@ -25,17 +23,12 @@ class ViewController: UITableViewController {
             .rightBarButtonItem =
         UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewContact))
         
-        generateDummyData()
+        staticData.generateDummyData(contactsCrud: contactsCrud)
+        sortContacts.createSectionTitles(contactsCRUD: contactsCrud)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
-    }
-    
-    func generateDummyData() {
-        for i in 0..<namesArr.count {
-            contactsCrud.addContact(name: namesArr[i], number: numbersArr[i])
-        }
     }
 }
 
@@ -61,13 +54,15 @@ extension ViewController {
                     .textFields?[0].text
                 let number = alertController
                     .textFields?[1].text
-            
-                if number != "" {
-                    name = "Unknown"
+                
+                if name == "" && number != "" {
+                    name = number
                 }
                 
                 self.contactsCrud
                     .addContact(name: name!, number: number!)
+                
+                self.sortContacts.createSectionTitles(contactsCRUD: self.contactsCrud)
                 
                 self.tableView
                     .reloadData()
@@ -80,15 +75,19 @@ extension ViewController {
 // MARK: ViewController extension for tableView functions
 extension ViewController {
     
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return sortContacts.sectionTitles.count
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return contactsCrud.contactObjectsArray.count
+        return sortContacts.sortedContactList[sortContacts.sectionTitles[section]]?.count ?? 0
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Contact", for: indexPath)
         
         cell.textLabel?
-            .text = contactsCrud.contactObjectsArray[indexPath.item].name
+            .text = sortContacts.sortedContactList[sortContacts.sectionTitles[indexPath.section]]?[indexPath.row].name
         cell.imageView?
             .image = UIImage(systemName: "person")
         
@@ -96,8 +95,17 @@ extension ViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let contact = contactsCrud.contactObjectsArray[indexPath.row]
-        performSegue(withIdentifier: "ViewContact", sender: contact)
+        let contact = sortContacts.sortedContactList[sortContacts.sectionTitles[indexPath.section]]?[indexPath.row]
+        performSegue(withIdentifier: "ViewContact", sender: (contact, indexPath))
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return sortContacts.sectionTitles[section]
+    }
+    
+    override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+        tableView.sectionIndexColor = .placeholderText
+        return sortContacts.sectionTitles
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -107,8 +115,8 @@ extension ViewController {
             let ac = UIAlertController(title: "Are You Sure?", message: nil, preferredStyle: .alert)
             ac.addAction(UIAlertAction(title: "Cancel", style: .default))
             ac.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { UIAlertAction in
-                self.contactsCrud.contactObjectsArray.remove(at: indexPath.row)
-                tableView.deleteRows(at: [indexPath], with: .fade)
+                self.contactsCrud.deleteContact(indexPath: indexPath)
+                self.tableView.deleteRows(at: [indexPath], with: .fade)
             }))
             
             present(ac, animated: true)
@@ -118,7 +126,7 @@ extension ViewController {
     // MARK: navigate to next view controller
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destinationViewController = segue.destination as! ContactDetailVC
-        destinationViewController.contact = sender as? Contacts
+        destinationViewController.data = sender as? (Contacts, IndexPath)
     }
 }
 

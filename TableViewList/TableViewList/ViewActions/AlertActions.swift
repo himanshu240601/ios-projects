@@ -10,7 +10,7 @@ import UIKit
 
 class AlertActions {
     
-    // MARK: functions
+    // MARK: methods
     func addTextField(alertController: UIAlertController, position: Int, placeholder: String) {
         alertController.addTextField()
         alertController.textFields?[position].placeholder = placeholder
