@@ -28,12 +28,21 @@ class SortContacts {
     }
     
     func setDataForSections(contactsCRUD: ContactCRUD) {
+        //initialize each
         for title in sectionTitles{
             sortedContactList[title] = [Contacts]()
         }
         
+        //add data to the dictionary
         for contact in contactsCRUD.contactObjectsArray{
             sortedContactList[String(contact.name.prefix(1)).uppercased()]?.append(contact)
+        }
+        
+        //sort names in each array inside dictionary
+        for (key, _) in sortedContactList {
+            sortedContactList[key] = sortedContactList[key]?.sorted(by: {
+                $0.name.uppercased() < $1.name.uppercased()
+            })
         }
     }
 }

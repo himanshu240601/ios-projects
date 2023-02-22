@@ -7,7 +7,9 @@
 
 import Foundation
 
+
 class ContactCRUD {
+    
     // MARK: properties
     static let contactCRUD = ContactCRUD()
     let sortContacts = SortContacts.sortContacts
@@ -20,13 +22,25 @@ class ContactCRUD {
     func addContact(name: String, number: String) {
         let contact = Contacts(name: name, mobile: number)
         contactObjectsArray.insert(contact, at: 0)
+        
+        sortContacts.createSectionTitles(contactsCRUD: ContactCRUD.contactCRUD)
     }
     
     func deleteContact(indexPath: IndexPath) {
         let contact = sortContacts
             .sortedContactList[
-                self.sortContacts.sectionTitles[indexPath.section]
+                sortContacts.sectionTitles[indexPath.section]
             ]?.remove(at: indexPath.row)
+        
+        //TODO: if no contact in current section
+        //remove that section
+        if self.sortContacts
+            .sortedContactList[
+                self.sortContacts.sectionTitles[indexPath.section]
+            ]?.count == 0 {
+            self.sortContacts.sortedContactList.removeValue(forKey: sortContacts.sectionTitles[indexPath.section])
+//            self.sortContacts.sectionTitles.remove(at: indexPath.section)
+        }
         
         //removing elements from the static data
         //so no element is regenerated when a new value
@@ -42,5 +56,7 @@ class ContactCRUD {
     func updateContact(contact: Contacts, name: String, number: String) {
         contact.name = name
         contact.mobile = number
+        
+        sortContacts.createSectionTitles(contactsCRUD: ContactCRUD.contactCRUD)
     }
 }

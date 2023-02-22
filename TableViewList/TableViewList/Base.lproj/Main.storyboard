@@ -31,7 +31,7 @@
                             <outlet property="delegate" destination="vzG-kU-E5F" id="iZH-ot-NfK"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Contacts" largeTitleDisplayMode="never" id="lM6-IH-OKd"/>
+                    <navigationItem key="navigationItem" title="Contacts" id="lM6-IH-OKd"/>
                     <connections>
                         <segue destination="8h2-3e-ucp" kind="show" identifier="ViewContact" id="Rfm-9P-GQI"/>
                     </connections>
@@ -68,11 +68,17 @@
                                         <rect key="frame" x="0.0" y="0.0" width="88.333333333333329" height="36"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="tinted" image="phone" catalog="system" cornerStyle="capsule"/>
+                                        <connections>
+                                            <action selector="callButtonTapped:" destination="8h2-3e-ucp" eventType="touchUpInside" id="Awm-gy-c3v"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="814-TG-89n">
                                         <rect key="frame" x="112.33333333333334" y="0.0" width="88.333333333333343" height="36"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="tinted" image="message" catalog="system" cornerStyle="capsule"/>
+                                        <connections>
+                                            <action selector="messageButtonTapped:" destination="8h2-3e-ucp" eventType="touchUpInside" id="EWN-hJ-iKN"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="idH-xr-T5g">
                                         <rect key="frame" x="224.66666666666671" y="0.0" width="88.333333333333343" height="36"/>
@@ -143,7 +149,7 @@
                             <constraint firstItem="3wV-kt-lwc" firstAttribute="top" secondItem="N8l-hi-F7F" secondAttribute="bottom" constant="8" id="zXJ-YZ-6JR"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" style="editor" id="312-YQ-Jq1"/>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" style="editor" id="312-YQ-Jq1"/>
                     <connections>
                         <outlet property="callButton" destination="TRN-yt-HMJ" id="mPf-m3-HIN"/>
                         <outlet property="messageButton" destination="814-TG-89n" id="2JD-q5-Hqr"/>
