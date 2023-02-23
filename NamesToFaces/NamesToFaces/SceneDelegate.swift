@@ -2,7 +2,7 @@
 //  SceneDelegate.swift
 //  NamesToFaces
 //
-//  Created by Nitin on 2/20/23.
+//  Created by Himanshu on 2/20/23.
 //
 
 import UIKit
