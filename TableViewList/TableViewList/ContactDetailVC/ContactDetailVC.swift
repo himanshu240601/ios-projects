@@ -23,6 +23,7 @@ class ContactDetailVC: UIViewController {
     // MARK: class objects
     var contactsCrud = ContactCRUD.contactCRUD
     var alertActions = AlertActions()
+    var sortContacts = SortContacts.sortContacts
     
     // MARK: lifecycle methods
     override func viewDidLoad() {

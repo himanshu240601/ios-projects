@@ -48,13 +48,22 @@ extension ViewController {
     // MARK: table view swipe gestures
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
 
+        // MARK: swipe left to delete
         if editingStyle == .delete {
             let ac = alertActions.deleteContactAlert()
             ac.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { UIAlertAction in
                 self.contactsCrud.deleteContact(indexPath: indexPath)
-                self.tableView.deleteRows(at: [indexPath], with: .none)
+                self.tableView.deleteRows(at: [indexPath], with: .automatic)
                 
-                self.tableView.reloadData()
+                if self.sortContacts
+                    .sortedContactList[
+                        self.sortContacts.sectionTitles[indexPath.section]
+                    ] == nil{
+                    
+                    self.sortContacts.sectionTitles.remove(at: indexPath.section)
+                    self.tableView.deleteSections(IndexSet(integer: indexPath.section), with: .automatic)
+                    
+                }
             }))
             
             present(ac, animated: true)

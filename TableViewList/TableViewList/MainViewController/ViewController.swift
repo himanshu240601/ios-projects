@@ -23,7 +23,9 @@ class ViewController: UITableViewController {
             .rightBarButtonItem =
         UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewContact))
         
+        //generate random data
         staticData.generateDummyData(contactsCrud: contactsCrud)
+        
         sortContacts.createSectionTitles(contactsCRUD: contactsCrud)
     }
     

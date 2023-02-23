@@ -54,7 +54,7 @@ class StaticData {
         "Erin Jones",
         "Kevin Mitchell",
         "Chelsea Hanson",
-        "Isaac Rowe",
+        "Oscar Isaac",
         "Ronald Young",
         "Stephanie West",
         "Jennifer Haley",

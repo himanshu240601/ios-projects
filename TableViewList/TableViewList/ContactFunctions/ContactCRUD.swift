@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 
 class ContactCRUD {
@@ -32,24 +33,23 @@ class ContactCRUD {
                 sortContacts.sectionTitles[indexPath.section]
             ]?.remove(at: indexPath.row)
         
-        //TODO: if no contact in current section
-        //remove that section
-        if self.sortContacts
-            .sortedContactList[
-                self.sortContacts.sectionTitles[indexPath.section]
-            ]?.count == 0 {
-            self.sortContacts.sortedContactList.removeValue(forKey: sortContacts.sectionTitles[indexPath.section])
-//            self.sortContacts.sectionTitles.remove(at: indexPath.section)
-        }
-        
-        //removing elements from the static data
+        //removing elements from the data
         //so no element is regenerated when a new value
         //is added
         for i in 0..<contactObjectsArray.count {
-            if (contact?.mobile == contactObjectsArray[i].mobile) {
+            if (contact?.mobile == contactObjectsArray[i].mobile && contact?.name == contactObjectsArray[i].name) {
                 contactObjectsArray.remove(at: i)
                 break
             }
+        }
+        
+        //remove entire key from sortContactList
+        if sortContacts
+            .sortedContactList[
+                sortContacts.sectionTitles[indexPath.section]
+            ]?.count == 0{
+            
+            sortContacts.sortedContactList.removeValue(forKey: sortContacts.sectionTitles[indexPath.section])
         }
     }
     

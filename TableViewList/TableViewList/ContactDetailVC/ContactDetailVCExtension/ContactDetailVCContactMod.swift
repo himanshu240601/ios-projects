@@ -18,6 +18,7 @@ extension ContactDetailVC {
         let alertController = alertActions.deleteContactAlert()
         alertController.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { UIAlertAction in
             self.contactsCrud.deleteContact(indexPath: self.data!.1)
+            self.sortContacts.sectionTitles.remove(at: self.data!.1.section)
             self.navigationController?.popViewController(animated: true)
         }))
         
